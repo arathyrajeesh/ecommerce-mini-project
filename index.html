@@ -7,17 +7,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
 </head>
 <body>
-
-<header>
-    <h1>Organic Store</h1>
-    <nav>
-        <a href="#">About</a>
-        <a href="#">Everything</a>
-        <a href="#">Groceries</a>
-        <a href="#">Juice</a>
-        <a href="#">Contact</a>
-    </nav>
-</header>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="path/to/your/organic-store-logo.png" alt="Organic Store Logo">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#" class="active">Everything</a></li>
+                    <li><a href="#">Groceries</a></li>
+                    <li><a href="#">Juice</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <span class="cart-info">£0.00</span>
+                <a href="#" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="#" class="user-icon">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </header>
 <div class="container">
     <aside class="sidebar">
         <div class="filter-box">
@@ -66,7 +81,7 @@
 <footer>
     <div class="footer-top">
         <div class="footer-section footer-brand">
-            <img src="" alt="Organic Store Logo" class="footer-logo">
+            <img src="assests/organic-store-foote-logo.png" alt="Organic Store Logo" class="footer-logo">
             <p>Maecenas mi justo,<br>interdum at consectetur<br>vel, tristique et arcu.</p>
         </div>
 
