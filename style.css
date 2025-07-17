@@ -1,7 +1,7 @@
 body { 
     font-family: Arial; 
     margin: 0; 
-    background: #f9f9f9; 
+    background: #dad7d7; 
 }
 header { 
     background: #fafcfb; 
@@ -22,7 +22,7 @@ nav a {
     font-size: 24px;
 }
 nav a:hover{ 
-    color:green;
+    color:rgb(61, 179, 61);
 }
 .container { 
     display: flex; 
