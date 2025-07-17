@@ -3,64 +3,64 @@ body {
     margin: 0; 
     background: #f9f9f9; 
 }
-header, footer { 
-    background: #2d6a4f; 
-    color: white; 
-    padding: 1rem; 
-    text-align: center; 
-}
-nav a { 
-    margin: 0 15px; 
-    color: white; 
-    text-decoration: none; 
-}
-.container { 
-    display: flex; 
-    padding: 2rem; 
-}
-.sidebar { 
-    width: 25%; 
-    padding-right: 1rem; 
-}
-.content { 
-    width: 75%; 
-}
-.filter-box { 
-    background: white; 
-    padding: 1rem; 
-    margin-bottom: 1rem; 
-}
-.filter-box h3 { 
-    margin-top: 0; 
-}
-.products { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem; 
-}
-.product { 
-    background: white; 
-    padding: 1rem; 
-    text-align: center; 
-    position: relative; 
-    border: 1px solid #ddd; 
-}
-.product img { 
-    width: 100%; 
-    height: auto; 
-}
-.sale-tag {
-    position: absolute; top: 10px; right: 10px;
-    background: green; 
-    color: white; 
-    font-size: 0.8rem;
-    padding: 5px 10px; 
-    border-radius: 50px;
-}
-.sort-bar { 
-    text-align: right; 
-    margin-bottom: 1rem; 
-}
-.breadcrumbs, .shop-title { 
-    margin-bottom: 1rem;
-}
+    header, footer { 
+        background: #2d6a4f; 
+        color: white; 
+        padding: 1rem; 
+        text-align: center; 
+    }
+    nav a { 
+        margin: 0 15px; 
+        color: white; 
+        text-decoration: none; 
+    }
+    .container { 
+        display: flex; 
+        padding: 2rem; 
+    }
+    .sidebar { 
+        width: 25%; 
+        padding-right: 1rem; 
+    }
+    .content { 
+        width: 75%; 
+    }
+    .filter-box { 
+        background: white; 
+        padding: 1rem; 
+        margin-bottom: 1rem; 
+    }
+    .filter-box h3 { 
+        margin-top: 0; 
+    }
+    .products { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+        gap: 1rem; 
+    }
+    .product { background: white; padding: 1rem; 
+        text-align: center; 
+        position: relative; 
+        border: 1px solid #ddd; 
+    }
+    .product img { 
+        width: 100%; 
+        height: auto; 
+    }
+    .sale-tag {
+        position: absolute; 
+        top: 10px; 
+        right: 10px;
+        background: green; 
+        color: white; 
+        font-size: 0.8rem;
+        padding: 5px 10px; 
+        border-radius: 50px;
+    }
+    .sort-bar { 
+        text-align: right; 
+        margin-bottom: 1rem; 
+    }
+    .breadcrumbs, .shop-title { 
+        margin-bottom: 1rem; 
+    }
