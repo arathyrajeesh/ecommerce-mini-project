@@ -1,0 +1,119 @@
+/* :root {
+    --e-global-color-primary: #6EC1E4;
+    --e-global-color-secondary: #54595F;
+    --e-global-color-text: #7A7A7A;
+    --e-global-color-accent: #61CE70;
+    --e-global-typography-primary-font-family: "Roboto";
+    --e-global-typography-primary-font-weight: 600;
+    --e-global-typography-secondary-font-family: "Roboto Slab";
+    --e-global-typography-secondary-font-weight: 400;
+    --e-global-typography-text-font-family: "Roboto";
+    --e-global-typography-text-font-weight: 400;
+    --e-global-typography-accent-font-family: "Roboto";
+    --e-global-typography-accent-font-weight: 500;
+} */
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    margin: 0 auto;
+    max-width: 1300px;
+}
+nav {
+    background: white;
+}
+.menu-items {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}    
+.menu-items li a{
+    text-decoration: none;
+    color: rgb(43, 43, 43);
+}
+.menu-items li a:hover {
+    color: rgb(109, 161, 109);
+}
+#home-banner > div {
+    background: rgb(240, 240, 235);
+    padding-top: 60px;
+    display: flex;
+    justify-content: flex-end;
+}
+.home img {
+    margin-bottom: 20px ;
+}
+.home h4 {
+    margin-bottom: 20px ;
+}
+.home h2 {
+    margin-bottom: 20px ;
+    font-size: 50px;
+    font-weight: 900;
+}
+.home p {
+    margin-bottom: 20px ;
+}
+.home button {
+    margin-bottom: 20px ;
+    padding: 10px 10px 10px 10px;
+    max-width: 100px;
+    min-height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(155, 218, 28);
+}
+.home button:hover {
+    background-color: rgb(177, 225, 105);
+
+}
+#speciality {
+    background: black;
+    display:flex;
+    justify-content: space-evenly;
+
+
+}
+#speciality > div {
+    display: flex;
+    gap:43px;
+    margin: 20px 20px 20px 20px;
+}
+.card {
+    background: rgb(52, 52, 52);
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 7px;
+    max-width:800px ;
+    min-height: 50px;
+    padding: 10px 10px 10px 10px;
+    display: grid;
+    grid-template-rows:repeat(4, 1fr);
+}
+#bestSelling > div {
+    display: grid;
+    place-items: center;
+    margin-top: 10%;
+    font-size: 25px;
+    gap: 23px;
+}
+#bestSelling + div {
+    display: flex;
+    gap:14px;
+    margin: 20px 20px 20px 20px;
+}
+.product {
+    background:white;
+    color: black;
+    font-size: 20px;
+    font-weight: 300;
+    max-width:800px ;
+    padding: 10px 10px 10px 10px;
+    display: grid;
+    grid-template-rows:repeat(4, 1fr);
+}
