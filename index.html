@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Organic Shop - Products</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic Store - Shop</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header class="main-header">
         <div class="header-content">
             <div class="logo">
-                <img src="path/to/your/organic-store-logo.png" alt="Organic Store Logo">
+                <img src="assests/organic-store-nav-logo.svg" alt="Organic Store Logo">
             </div>
             <nav class="main-nav">
                 <ul>
@@ -33,97 +36,277 @@
             </div>
         </div>
     </header>
-<div class="container">
-    <aside class="sidebar">
-        <div class="filter-box">
-            <input type="text" placeholder="Search products..." style="width: 100%; padding: 5px;">
-        </div>
-        <div class="filter-box">
-        <h3>Filter by price</h3>
-        <p>£15 - £35</p>
-        <input type="range" min="0" max="100" value="35">
-    </div>
-    <div class="filter-box">
-        <h3>Categories</h3>
-        <p><a href="#">Groceries</a> (10)</p>
-        <p><a href="#">Juice</a> (9)</p>
-    </div>
-</aside>
-<main class="content">
-    <div class="breadcrumbs">Home / Shop</div>
-    <div class="shop-title"><h2 style="color: #40916c;">Shop</h2></div>
-    <div class="sort-bar">
-        <label>Default sorting ▼</label>
-    </div>
 
-    <div class="products">
-        <div class="product">
-            <span class="sale-tag">Sale!</span>
-            <img src="" alt="Product 1">
-            <h4>Guatemala Coffee</h4>
-            <p>£12.00</p>
-        </div>
-        <div class="product">
-            <span class="sale-tag">Sale!</span>
-            <img src="" alt="Product 2">
-            <h4>Cashew Butter</h4>
-            <p>£8.00</p>
-        </div>
-        <div class="product">
-            <span class="sale-tag">Sale!</span>
-            <img src="" alt="Product 3">
-            <h4>Gift Box Cookies</h4>
-            <p>£6.50</p>
-        </div>
-    </div>
-</main>
-</div>
-<footer>
-    <div class="footer-top">
-        <div class="footer-section footer-brand">
-            <img src="assests/organic-store-foote-logo.png" alt="Organic Store Logo" class="footer-logo">
-            <p>Maecenas mi justo,<br>interdum at consectetur<br>vel, tristique et arcu.</p>
+    <div class="shop-page-wrapper">
+        <div class="shop-header-breadcrumb">
+            <div class="container">
+                <span>Home / Shop</span>
+                <h1>Shop</h1>
+            </div>
         </div>
 
-        <div class="footer-section footer-links">
-            <h3>Website</h3>
-            <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Everything</a></li>
-                <li><a href="#">Groceries</a></li>
-                <li><a href="#">Juice</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
+        <div class="shop-container container">
+            <aside class="sidebar">
+                <div class="sidebar-section search-product-filter">
+                    <h3>Search Products...</h3>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search products...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
 
-        <div class="footer-section footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="#">Know More About Us</a></li>
-                <li><a href="#">Visit Store</a></li>
-                <li><a href="#">Let's Connect</a></li>
-                <li><a href="#">Locate Stores</a></li>
-            </ul>
-        </div>
+                <div class="sidebar-section price-filter">
+                    <h3>Filter by price</h3>
+                    <div class="price-range-slider">
+                        <div class="range-inputs">
+                            <input type="range" class="min-range" min="0" max="100" value="15">
+                            <input type="range" class="max-range" min="0" max="100" value="35">
+                        </div>
+                        <div class="price-display">
+                            <button class="filter-button">Filter</button>
+                            <span id="min-price-value">£15</span> - <span id="max-price-value">£35</span>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="footer-section footer-links">
-            <h3>Site Links</h3>
-            <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Shipping Details</a></li>
-                <li><a href="#">Offers Coupons</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-            </ul>
+                <div class="sidebar-section category-filter">
+                    <h3>Product Categories</h3>
+                    <ul>
+                        <li><a href="#">Groceries (10)</a></li>
+                        <li><a href="#">Juice (9)</a></li>
+                        <li><a href="#">Dried Fruits (4)</a></li>
+                        <li><a href="#">Vegetables (6)</a></li>
+                        <li><a href="#">Fresh Fruits (7)</a></li>
+                        <li><a href="#">All (36)</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section featured-product">
+                    <div class="product-card small-card">
+                        <div class="product-image-wrapper">
+                            <img src="" alt="Organic Fresh Juice">
+                            <span class="sale-badge">Sale</span>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Juice</span>
+                            <h4 class="product-title">Organic Fresh Juice</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <p class="product-price">
+                                <span class="old-price">£99.00</span>
+                                <span class="current-price">£75.00</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+
+            <main class="product-grid-container">
+                <div class="sort-options">
+                    <p>Showing 1-9 of 12 results</p>
+                    <div class="sort-customize-group">
+                        <select>
+                            <option>Default sorting</option>
+                            <option>Sort by popularity</option>
+                            <option>Sort by average rating</option>
+                            <option>Sort by latest</option>
+                            <option>Sort by price: low to high</option>
+                            <option>Sort by price: high to low</option>
+                        </select>
+                        <button class="customize-button-main"><i class="fas fa-cog"></i> Customize</button>
+                    </div>
+                </div>
+
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="" alt="Assorted Coffee">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Groceries</span>
+                            <h4 class="product-title">Assorted Coffee</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <p class="product-price">£55.00</p>
+                            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="" alt="Cashew Butter">
+                            <span class="sale-badge">Sale!</span>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Groceries</span>
+                            <h4 class="product-title">Cashew Butter</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="product-price">
+                                <span class="old-price">£45.00</span>
+                                <span class="current-price">£35.00</span>
+                            </p>
+                            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="" alt="Diabetic Cookies">
+                            <span class="sale-badge">Sale!</span>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Groceries</span>
+                            <h4 class="product-title">Diabetic Cookies</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="product-price">
+                                <span class="old-price">£25.00</span>
+                                <span class="current-price">£20.00</span>
+                            </p>
+                            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="" alt="Organic Almonds">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Dried Fruits</span>
+                            <h4 class="product-title">Organic Almonds</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <p class="product-price">£30.00</p>
+                            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="" alt="Fresh Carrots">
+                            <span class="sale-badge">Sale!</span>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Vegetables</span>
+                            <h4 class="product-title">Fresh Carrots</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="product-price">
+                                <span class="old-price">£25.00</span>
+                                <span class="current-price">£20.00</span>
+                            </p>
+                            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="" alt="Organic Banana">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Fresh Fruits</span>
+                            <h4 class="product-title">Organic Banana</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="product-price">£15.00</p>
+                            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
     </div>
 
-    <div class="footer-bottom">
-        <p>Copyright © 2025 | Organic Store</p>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-google"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+    <footer>
+        <div class="footer-top container">
+            <div class="footer-section footer-brand">
+                <img src="assests/organic-store-foote-logo.png" alt="Organic Store Logo" class="footer-logo">
+                <p>Maecenas mi justo,<br>interdum at consectetur<br>vel, tristique et arcu.</p>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Website</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Everything</a></li>
+                    <li><a href="#">Groceries</a></li>
+                    <li><a href="#">Juice</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Know More About Us</a></li>
+                    <li><a href="#">Visit Store</a></li>
+                    <li><a href="#">Let's Connect</a></li>
+                    <li><a href="#">Locate Stores</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Site Links</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Shipping Details</a></li>
+                    <li><a href="#">Offers Coupons</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="customize-button-footer">
+                <button><i class="fas fa-cog"></i> Customize</button>
+            </div>
         </div>
-    </div>
-</footer>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>Copyright © 2025 | Organic Store</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-google"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
