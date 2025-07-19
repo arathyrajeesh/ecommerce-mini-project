@@ -6,7 +6,7 @@
     <title>Organic Store - Shop</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
 </head>
 <body>
 
@@ -119,12 +119,11 @@
                             <option>Sort by price: low to high</option>
                             <option>Sort by price: high to low</option>
                         </select>
-                        <button class="customize-button-main"><i class="fas fa-cog"></i> Customize</button>
                     </div>
                 </div>
 
                 <div class="product-grid">
-                    <div class="product-card">
+                    <div class="product-card" id="productList">
                         <a href="product-details-assorted-coffee.html" class="product-link">
                             <div class="product-image-wrapper">
                                 <img src="assests/coffee-asorted.jpg" alt="Assorted Coffee">
@@ -145,7 +144,7 @@
                         <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card" id="productList">
                         <a href="product-details-cashew-butter.html" class="product-link">
                             <div class="product-image-wrapper">
                                 <img src="assests/cashew-butter.jpg" alt="Cashew Butter">
@@ -170,7 +169,7 @@
                         <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card" id="productList">
                         <a href="product-details-diabetic-cookies.html" class="product-link">
                             <div class="product-image-wrapper">
                                 <img src="assests/diabetic-cookies.jpg" alt="Diabetic Cookies">
@@ -195,14 +194,14 @@
                         <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card"id="productList">
                         <a href="product-details-organic-almonds.html" class="product-link">
                             <div class="product-image-wrapper">
-                                <img src="assests/oganic-almond.jpg" alt="Organic Almonds">
+                                <img src="assests/eggs-300x300.jpg" alt="Organic Almonds">
                             </div>
                             <div class="product-details">
-                                <span class="product-category">Dried Fruits</span>
-                                <h4 class="product-title">Organic Almonds</h4>
+                                <span class="product-category">Groceries</span>
+                                <h4 class="product-title">Egg</h4>
                                 <div class="product-rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -210,21 +209,21 @@
                                     <i class="fas fa-star"></i>
                                     <i class="far fa-star"></i>
                                 </div>
-                                <p class="product-price">30.00</p>
+                                <p class="product-price">34.00</p>
                             </div>
                         </a>
                         <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card" id="productList">
                         <a href="product-details-fresh-carrots.html" class="product-link">
                             <div class="product-image-wrapper">
-                                <img src="assests/organic-carrot.jpg" alt="Fresh Carrots">
+                                <img src="assests/orage-juice-kariz-300x300.jpg" alt="Fresh Carrots">
                                 <span class="sale-badge">Sale!</span>
                             </div>
                             <div class="product-details">
-                                <span class="product-category">Vegetables</span>
-                                <h4 class="product-title">Fresh Carrots</h4>
+                                <span class="product-category">Juice</span>
+                                <h4 class="product-title">Fresh Orange Juice</h4>
                                 <div class="product-rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -240,15 +239,61 @@
                         </a>
                         <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     </div>
-
-                    <div class="product-card">
-                        <a href="product-details-organic-banana.html" class="product-link">
+                    <div class="product-card" id="productList">
+                        <a href="product-details-diabetic-cookies.html" class="product-link">
                             <div class="product-image-wrapper">
-                                <img src="assests/organic-banana.webp" alt="Organic Banana">
+                                <img src="assests/organic-honey-300x300.jpg" alt="Diabetic Cookies">
+                                <span class="sale-badge">Sale!</span>
                             </div>
                             <div class="product-details">
-                                <span class="product-category">Fresh Fruits</span>
-                                <h4 class="product-title">Organic Banana</h4>
+                                <span class="product-category">Groceries</span>
+                                <h4 class="product-title">Natural honey</h4>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="product-price">
+                                    <span class="old-price">25.00</span>
+                                    <span class="current-price">20.00</span>
+                                </p>
+                            </div>
+                        </a>
+                        <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div><div class="product-card" id="productList">
+                        <a href="product-details-diabetic-cookies.html" class="product-link">
+                            <div class="product-image-wrapper">
+                                <img src="assests/sanitizer-300x300.jpg" alt="Diabetic Cookies">
+                                <span class="sale-badge">Sale!</span>
+                            </div>
+                            <div class="product-details">
+                                <span class="product-category">Groceries</span>
+                                <h4 class="product-title">Hand sanitizer</h4>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="product-price">
+                                    <span class="old-price">25.00</span>
+                                    <span class="current-price">20.00</span>
+                                </p>
+                            </div>
+                        </a>
+                        <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                    <div class="product-card" id="productList">
+                        <a href="product-details-organic-banana.html" class="product-link">
+                            <div class="product-image-wrapper">
+                                <img src="assests/red-chillies-300x300.jpg" alt="Organic Banana">
+                            </div>
+                            <div class="product-details">
+                                <span class="product-category">Groceries</span>
+                                <h4 class="product-title">Red chillies</h4>
                                 <div class="product-rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -270,7 +315,7 @@
         <div class="footer-top container">
             <div class="footer-section footer-brand">
                 <img src="assests/organic-store-foote-logo.png" alt="Organic Store Logo" class="footer-logo">
-                <p>Maecenas mi justo,<br>interdum at consectetur<br>vel, tristique et arcu.</p>
+                <p>a company focused on creating and selling a range of beauty and personal care products that are inspired by nature and prioritize sustainability.</p>
             </div>
 
             <div class="footer-section footer-links">

@@ -12,6 +12,7 @@ body {
     padding: 0 20px;
 }
 
+
 .main-header {
     background-color: #fff;
     border-bottom: 1px solid #e0e0e0;
@@ -410,26 +411,6 @@ body {
     background-position: right 10px center;
     background-size: 10px;
 }
-
-.customize-button-main {
-    background-color: #f0f0f0; 
-    color: #555;
-    border: 1px solid #ddd;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.customize-button-main:hover {
-    background-color: #e0e0e0;
-    color: #333;
-}
-
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
