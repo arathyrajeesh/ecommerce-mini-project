@@ -4,7 +4,11 @@
     /* border: 3px solid green; */
 
 }
-
+.container{
+    max-width: 1200px;
+    padding: 0;
+    margin: 0 auto;
+}
 *{
     margin: 0;
     padding: 0;
@@ -115,7 +119,7 @@ ul{
 }
 .black{
     background-color: black;
-    height: 160px;
+    /* height: 160px; */
     /* display: grid; */
     display: flex;
     grid-template-columns: repeat((4,1fr));
@@ -157,9 +161,10 @@ ul{
     justify-content: center;
     /* align-items: center; */
     padding-top: 70px;
+    border: 2px solid rgb(71, 255, 163);
 }
 .image>div{
-    /* border: 2px solid tomato; */
+    border: 2px solid tomato;
     /* width: 400px; */
     /* height: 500px; */
     border-radius: 10px;
@@ -174,18 +179,38 @@ ul{
     width: 500px;
     height: 700px;
     margin-top: 70px;
-    
+   
     background-color: #f8f6f3;
     display: flex;
     align-items: end;
+    /* justify-content: center; */
 
 }
-.text div{
-    border: 2px solid green;
-    width: 100%;
+.review{
+    text-align: center;
 }
+.personal{
+    /* border: 2px solid aqua; */
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ .review img{
+    width: 50px;
+ }
+.text div{
+    /* border: 2px solid green; */
+    width: 100%;
+    height: 200px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+}
+
 #picture{
-    width: 400px;
+    width: 100%;
     height: 500px;
     /* transition: 5s; */
     border-radius: 10px;
@@ -196,18 +221,19 @@ ul{
     flex-direction: column;
     justify-content:end;
     height:500px;
+    border: 2px solid rebeccapurple;
     
 }
 .certificate>div{
     /* border: 2px solid rgb(188, 8, 192); */
     /* margin-top: 30px; */
 }
-.organic{
+/* .organic{
     display: flex;
     flex-direction: column;
     /* justify-content: end; */
     /* gap: 50px; */
-}
+/* } */ */
 .certi-logo img{
     width: 120px;
     
@@ -286,9 +312,10 @@ ul{
     grid-template-columns: repeat(4,1fr);
     background-color: black;
     color: white;
+    padding-top: 30px;
 }
 .foot img{
-    width: 200px;
+    max-width: 200px;
 }
 .foot div{
     /* border: 2px solid gold; */
@@ -342,4 +369,73 @@ ul{
 }
 .num{
     font-size: 50px;
+}
+@media (max-width:600px){
+    ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-icons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .navigation{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .description{
+        display: flex;
+        flex-direction: column;
+    }
+    .black{
+        display: flex;
+        flex-direction: column;
+    }
+    .quality{
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+    }
+    .image{
+        display: flex;
+        justify-content: center;
+    }
+    #picture{
+        width: 100%;
+    }
+    .certi-logo{
+        display: flex;
+        flex-direction: column;
+        /* width: 200px; */
+    }
+    .images{
+        width: 200px;
+    }
+    .text{
+        width: 300px;
+    }
+    .certificate{
+        display: flex;
+        flex-direction: column;
+    }
+    .list{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .certi-logo img{
+        width: 50px;
+        
+    
+    }
+    .foot{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
+    }
+    
 }

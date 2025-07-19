@@ -37,6 +37,19 @@ const data = [
     {
         message : 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.',
         name : 'Mila Kunit',
-        photo : ''
+        photo : 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2019/07/client02-free-img.png'
     }
 ]
+
+let person = document.getElementById('comment');
+let personComment="";
+data.map((item)=>{
+    personComment = personComment + `<div class='review'>
+                                    <p>${item.message}</p>
+                                    <span class="personal">
+                                        <img src="${item.photo}">
+                                        <h4>${item.name}</h4>
+                                    </span>
+                                    </div>`
+})
+comment.innerHTML = personComment;
