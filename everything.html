@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic Store - Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="assests/organic-store-nav-logo.svg" alt="Organic Store Logo">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#" class="active">Everything</a></li>
+                    <li><a href="#">Groceries</a></li>
+                    <li><a href="#">Juice</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <span class="cart-info">0.00</span>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="#" class="user-icon">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="shop-page-wrapper">
+        <div class="shop-header-breadcrumb">
+            <div class="container">
+                <span>Home / Shop</span>
+                <h1>Shop</h1>
+            </div>
+        </div>
+
+        <div class="shop-container container">
+            <aside class="sidebar">
+                <div class="sidebar-section search-product-filter">
+                    <h3>Search Products...</h3>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search products...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <div class="sidebar-section price-filter">
+                    <h3>Filter by price</h3>
+                    <div class="price-range-slider">
+                        <div class="range-inputs">
+                            <input type="range" class="min-range" min="0" max="100" value="15">
+                            <input type="range" class="max-range" min="0" max="100" value="35">
+                        </div>
+                        <div class="price-display">
+                            <button class="filter-button">Filter</button>
+                            <span id="min-price-value">15</span> - <span id="max-price-value">35</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section category-filter">
+                    <h3>Product Categories</h3>
+                    <ul>
+                        <li><a href="#">Groceries (10)</a></li>
+                        <li><a href="#">Juice (9)</a></li>
+                        <li><a href="#">Dried Fruits (4)</a></li>
+                        <li><a href="#">Vegetables (6)</a></li>
+                        <li><a href="#">Fresh Fruits (7)</a></li>
+                        <li><a href="#">All (36)</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section featured-product">
+                    <div class="product-card small-card">
+                        <div class="product-image-wrapper">
+                            <img src="assests/organic-fresh-juice.jpg" alt="Organic Fresh Juice">
+                            <span class="sale-badge">Sale</span>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Juice</span>
+                            <h4 class="product-title">Organic Fresh Juice</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <p class="product-price">
+                                <span class="old-price">99.00</span>
+                                <span class="current-price">75.00</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+
+            <main class="product-grid-container">
+                <div class="sort-options">
+                    <p>Showing 1-9 of 12 results</p>
+                    <div class="sort-customize-group">
+                        <select>
+                            <option>Default sorting</option>
+                            <option>Sort by popularity</option>
+                            <option>Sort by average rating</option>
+                            <option>Sort by latest</option>
+                            <option>Sort by price: low to high</option>
+                            <option>Sort by price: high to low</option>
+                        </select>
+                    </div>
+                </div>
+            
+                <div class="product-grid">
+                    </div>
+            </main>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-top container">
+            <div class="footer-section footer-brand">
+                <img src="assests/organic-store-foote-logo.png" alt="Organic Store Logo" class="footer-logo">
+                <p>a company focused on creating and selling a range of beauty and personal care products that are inspired by nature and prioritize sustainability.</p>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Website</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#" class="active">Everything</a></li>
+                    <li><a href="#">Groceries</a></li>
+                    <li><a href="#">Juice</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Know More About Us</a></li>
+                    <li><a href="#">Visit Store</a></li>
+                    <li><a href="#">Let's Connect</a></li>
+                    <li><a href="#">Locate Stores</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Site Links</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Shipping Details</a></li>
+                    <li><a href="#">Offers Coupons</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>Copyright © 2025 | Organic Store</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-google"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
