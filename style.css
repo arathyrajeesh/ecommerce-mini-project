@@ -97,10 +97,10 @@ button:hover {
     background-color:white;
     display: grid;
     text-align: center;
-    margin-top: 90px;
+    padding-top: 90px;
     font-size: 25px;
     gap: 23px;
-    margin-bottom: 90px;
+    padding-bottom: 90px;
 }
 #bestSelling > div + img {
     display: flex;
@@ -200,6 +200,7 @@ button:hover {
     display: flex;
     justify-content: space-evenly;
     font-size: 30px;
+    padding-top: 30px;
     margin-bottom: 30px;
 }
 body {
@@ -212,12 +213,6 @@ body {
     background-color: #fcfafa; 
 }
 
-.container {
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 0 20px; 
-    box-sizing: border-box;
-}
 
 .main-header {
     background-color: #fff;
@@ -689,7 +684,7 @@ body {
 }
 
 footer {
-    background-color: #333;
+    background-color: black;
     color: #eee;
     padding: 40px 0 20px;
     font-size: 0.9em;
@@ -700,7 +695,6 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 30px;
-    border-bottom: 1px solid #555;
     padding-bottom: 30px;
     margin-bottom: 30px;
 }
