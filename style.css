@@ -198,6 +198,7 @@ button:hover {
     display: flex;
     justify-content: space-evenly;
     font-size: 30px;
+    margin-bottom: 30px;
 }
 body {
     margin: 0;

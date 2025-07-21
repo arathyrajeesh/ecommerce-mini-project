@@ -5,25 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Home-Page</title>
+    <title>Organic store Home</title>
     
 </head>
 <body>
-    <header>
-        <div>
-            <nav class="container">
-                <ul class="menu-items">
-                    <img src="./assets/organic-store-logo.svg">
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="assests/organic-store-nav-logo.svg" alt="Organic Store Logo">
+            </div>
+            <nav class="main-nav">
+                <ul>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Everything</a></li>
+                    <li><a href="./index.html">Everything</a></li>
                     <li><a href="#">Groceries</a></li>
                     <li><a href="#">Juice</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="#"><img src="./assets/price.svg" height="30px" width="20px" alt="price"></a></li>
-                    <li><a href="#"><img src="./assets/cart.svg" height="30px" width="20px" alt="cart"></a></li>
-                    <li><a href="#"><img src="./assets/sign.svg" height="30px" width="30px" alt="sign-in"></a></li>
                 </ul>
             </nav>
+            <div class="header-icons">
+                <span class="cart-info">0.00</span>
+                <a href="#" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="#" class="user-icon">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
         </div>
     </header>
     <main>
@@ -106,7 +115,6 @@
                     <h4>Mike Sendler</h4>
                 </div>
             </div>
-            <!-- <div id="custReview" class="container"></div> -->
         </section>
         <section id="feature">
             <div class="feature-brand">
@@ -119,7 +127,57 @@
             </div>
         </section>
     </main>
-    <footer></footer>
+    <footer>
+        <div class="footer-top container">
+            <div class="footer-section footer-brand">
+                <img src="assests/organic-store-foote-logo.png" alt="Organic Store Logo" class="footer-logo">
+                <p>a company focused on creating and selling a range of beauty and personal care products that are inspired by nature and prioritize sustainability.</p>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Website</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Everything</a></li>
+                    <li><a href="#">Groceries</a></li>
+                    <li><a href="#">Juice</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Know More About Us</a></li>
+                    <li><a href="#">Visit Store</a></li>
+                    <li><a href="#">Let's Connect</a></li>
+                    <li><a href="#">Locate Stores</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Site Links</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Shipping Details</a></li>
+                    <li><a href="#">Offers Coupons</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>Copyright © 2025 | Organic Store</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-google"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="./script.js"></script>
 </body>
 </html>

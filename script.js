@@ -1,4 +1,4 @@
-
+const showSpeciality = ()=> {
     const data = [
         {title:'Free Shipping',subtitle:'Above $5 only'},
         {title:'Certified Organic',subtitle:'100% Guarantee'},
@@ -19,6 +19,8 @@
     })
 
     cardContainer.innerHTML = specialityList
+}
+showSpeciality()
 const showBestSellProduct = ()=> {
     const bestProducts = [
         {
