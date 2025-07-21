@@ -19,7 +19,7 @@
     })
 
     cardContainer.innerHTML = specialityList
-
+const showBestSellProduct = ()=> {
     const bestProducts = [
         {
             image:"https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/coffee-asorted.jpg",
@@ -99,9 +99,11 @@
 
     })
     itemContainer.innerHTML = itemList
+}
+showBestSellProduct()
 
-
-const trendProducts = [
+const showTrendingProduct = ()=> {
+    const trendProducts = [
         {
             image:"https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/coffee-asorted.jpg",
             category:'Groceries',
@@ -147,20 +149,8 @@ const trendProducts = [
     })
     trendingProduct.innerHTML = prodList
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
+showTrendingProduct()
 
 
 
