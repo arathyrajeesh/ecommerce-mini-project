@@ -1,0 +1,441 @@
+.logo{
+    width: 150px;
+    height: 100%;
+    /* border: 3px solid green; */
+
+}
+.container{
+    max-width: 1200px;
+    padding: 0;
+    margin: 0 auto;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.navigation-bar{
+    /* border: 3px solid black; */
+    background-color: #f8f6f3;
+}
+.navigation{
+    /* list-style: none; */
+    display: flex;
+    justify-content: space-around;
+
+}
+.navigation>div{
+    /* border: 2px solid violet; */
+    align-items: center;
+    
+}
+li{
+    list-style: none;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+ul{
+    display: flex;
+    /* border: 2px solid blue; */
+    height: 100%;
+    gap: 50px;
+
+    
+    
+}
+.nav-icons{
+    display: flex;
+    gap: 30px;
+}
+.banner{
+    /* border: 2px solid salmon; */
+    height: 450px;
+    
+    
+}
+.banner1{
+    background-color: #f8f6f3;
+    height: 70%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid green; */
+}
+.heading{
+    font-size: 60px;
+    font-weight: bolder;
+    /* border: 2px solid red; */
+}
+.banner2{
+    background-color: white;
+    height: 30%;
+    display: flex;
+    justify-content:center;
+    /* align-items:flex-start; */
+    position: relative;
+    /* border: 2px solid black; */
+}
+.leaf{
+    position: absolute;
+    /* margin-bottom: -20px; */
+    width: 180px;
+    margin-top: -17px;
+    
+}
+.description{
+    /* height: 300px; */
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-evenly;
+    /* height: 450px; */
+
+}
+.main{
+    /* border: 2px solid green; */
+    width: 530px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+}
+.main h1{
+    font-size: 35px;
+}
+.main p{
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:400;
+    color: rgb(69, 67, 67);
+}
+.main img{
+    width: 500px;
+}
+.white{
+    height: 150px;
+}
+.black{
+    background-color: black;
+    /* height: 160px; */
+    /* display: grid; */
+    display: flex;
+    grid-template-columns: repeat((4,1fr));
+    /* grid-template-rows:repeat(4,1fr); */
+    /* display: flex; */
+    justify-content: space-evenly;
+}
+.black>div{
+    /* border: 2px solid white; */
+    width: 250px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+        
+}
+.numbers{
+    font-size: 22px;
+    font-weight: bold;
+    font-family: sans-serif;
+    
+}
+.quality{
+    height: 950px;
+    /* border: 2px solid seagreen; */
+    display: flex;
+    /* display: grid; */
+    /* grid-template-columns: repeat(2,1fr); */
+}
+.quality>div{
+    /* border: 2px solid hotpink; */
+    /* height: 100%; */
+    width: 50%;
+    height: 850px
+    
+}
+.image{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding-top: 70px;
+    border: 2px solid rgb(71, 255, 163);
+}
+.image>div{
+    border: 2px solid tomato;
+    /* width: 400px; */
+    /* height: 500px; */
+    border-radius: 10px;
+}
+.images{
+    position: absolute;
+    width: 400px;
+    /* background-color: tomato; */
+}
+.text{
+    /* position: relative; */
+    width: 500px;
+    height: 700px;
+    margin-top: 70px;
+   
+    background-color: #f8f6f3;
+    display: flex;
+    align-items: end;
+    /* justify-content: center; */
+
+}
+.review{
+    text-align: center;
+}
+.personal{
+    /* border: 2px solid aqua; */
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ .review img{
+    width: 50px;
+ }
+.text div{
+    /* border: 2px solid green; */
+    width: 100%;
+    height: 200px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+}
+
+#picture{
+    width: 100%;
+    height: 500px;
+    /* transition: 5s; */
+    border-radius: 10px;
+}
+.certificate{
+    /* border: 5px solid rgb(181, 213, 20); */
+    display: flex;
+    flex-direction: column;
+    justify-content:end;
+    height:500px;
+    border: 2px solid rebeccapurple;
+    
+}
+.certificate>div{
+    /* border: 2px solid rgb(188, 8, 192); */
+    /* margin-top: 30px; */
+}
+/* .organic{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: end; */
+    /* gap: 50px; */
+/* } */ */
+.certi-logo img{
+    width: 120px;
+    
+}
+.certi-logo{
+    display: flex;
+    /* border: 2px solid saddlebrown; */
+    /* justify-content: center; */
+    gap: 50px;
+}
+.certi-logo>div{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* border: 2px solid hotpink; */
+    width: 350px;
+}
+.certi-logo p{
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.deal h1{
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 20px;
+}
+.deal img{
+    margin-bottom: 20px;
+}
+.list{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.list>div{
+    display: flex;
+    height: 40px;
+    gap: 20px;
+    /* border: 2px solid hotpink; */
+}
+.list h3{
+    font-family:sans-serif;
+    font-size: 17px;
+    font-weight: 300;
+}
+.but{
+    height: 40px;
+    width: 180px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #5a8d1f;
+    color: white;
+    border:none;
+    border-radius: 6px;
+    margin-top: 30px;
+    
+}
+.but:hover{
+    background-color: #8bc34b;
+}
+.back{
+    display: flex;
+    justify-content: end;
+}
+.back img{
+    width: 500px;
+    height: 200px;
+    transform: rotate(20deg);
+    /* border: 2px solid black; */
+    margin-right: -45px;
+    opacity: 0.2;
+}
+.foot{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    background-color: black;
+    color: white;
+    padding-top: 30px;
+}
+.foot img{
+    max-width: 200px;
+}
+.foot div{
+    /* border: 2px solid gold; */
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+}
+.foot-logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.foot li{
+    font-size: 18px;
+    color: #b1b0af;
+}
+.foot-logo i{
+    font-size: 20px;
+    font-weight: bolder;
+
+}
+.line{
+    background-color: black;
+    color: white;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    gap: 20px;
+}
+.line p{
+    font-size: 21px;
+}
+.last{
+    display: flex;
+    justify-content: space-between;
+}
+.last div{
+    display: flex;
+    gap: 30px;
+    justify-content: space-evenly;
+    width: 200px;
+}
+.count{
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    text-align: center;
+}
+.num{
+    font-size: 50px;
+}
+@media (max-width:600px){
+    ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-icons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .navigation{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .description{
+        display: flex;
+        flex-direction: column;
+    }
+    .black{
+        display: flex;
+        flex-direction: column;
+    }
+    .quality{
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+    }
+    .image{
+        display: flex;
+        justify-content: center;
+    }
+    #picture{
+        width: 100%;
+    }
+    .certi-logo{
+        display: flex;
+        flex-direction: column;
+        /* width: 200px; */
+    }
+    .images{
+        width: 200px;
+    }
+    .text{
+        width: 300px;
+    }
+    .certificate{
+        display: flex;
+        flex-direction: column;
+    }
+    .list{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .certi-logo img{
+        width: 50px;
+        
+    
+    }
+    .foot{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
+    }
+    
+}

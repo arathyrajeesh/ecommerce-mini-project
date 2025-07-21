@@ -13,6 +13,143 @@
     <header class="main-header">
         <div class="header-content">
             <div class="logo">
+                <img src="assests/organic-store-nav-logo.svg" alt="Organic Store Logo">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="everything.html">Everything</a></li>
+                    <li><a href="#">Groceries</a></li>
+                    <li><a href="#">Juice</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <span class="cart-info">0.00</span>
+                <a href="cart.html" class="cart-icon active">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="#" class="user-icon">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="shop-header-breadcrumb">
+        <div class="container">
+            <span>Home / Cart</span>
+            <h1>Shopping Cart</h1>
+        </div>
+    </div>
+
+    <main class="cart-page-content container" style="padding: 50px 20px;">
+        <div class="empty-cart-message" style="text-align: center;">
+            <h2>Your Cart is Currently Empty</h2>
+            <p>Looks like you haven't added anything to your cart yet. Start exploring our amazing organic products!</p>
+            <a href="everything.html" class="back-to-shop-btn">
+                <i class="fas fa-arrow-left"></i> Continue Shopping
+            </a>
+        </div>
+
+        <div class="cart-table-wrapper">
+            <table class="cart-items-table" style="width: 100%; border-collapse: collapse; margin-bottom: 30px;">
+                <thead>
+                    <tr>
+                        <th style="text-align: left; padding: 10px; border-bottom: 1px solid #ddd;">Product</th>
+                        <th style="text-align: left; padding: 10px; border-bottom: 1px solid #ddd;">Price</th>
+                        <th style="text-align: center; padding: 10px; border-bottom: 1px solid #ddd;">Quantity</th>
+                        <th style="text-align: right; padding: 10px; border-bottom: 1px solid #ddd;">Total</th>
+                        <th style="text-align: center; padding: 10px; border-bottom: 1px solid #ddd;">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </div>
+
+        <div class="cart-totals" style="background-color: #f8f8f8; padding: 20px; border-radius: 8px; max-width: 350px; margin-left: auto; border: 1px solid #eee;">
+            <h3 style="margin-top: 0; color: #333;">Cart Totals</h3>
+            <p style="display: flex; justify-content: space-between; margin-bottom: 10px;">Subtotal: <span id="cart-subtotal">$0.00</span></p>
+            <p style="display: flex; justify-content: space-between; margin-bottom: 10px;">Shipping: <span id="cart-shipping">$0.00</span></p>
+            <hr style="border: none; border-top: 1px dashed #ddd; margin: 15px 0;">
+            <p style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.1em;">Total: <span id="cart-total">$0.00</span></p>
+            <button class="proceed-to-checkout-btn" style="background-color: #6a994e; color: #fff; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-size: 1em; width: 100%; margin-top: 20px; transition: background-color 0.3s;">Proceed to Checkout</button>
+        </div>
+
+        <a href="everything.html" class="back-to-shop-btn" style="display: block; width: fit-content; margin: 30px auto 0;">
+            <i class="fas fa-arrow-left"></i> Continue Shopping
+        </a>
+    </main>
+
+    <footer>
+        <div class="footer-top container">
+            <div class="footer-section footer-brand">
+                <img src="assests/organic-store-foote-logo.png" alt="Organic Store Logo" class="footer-logo">
+                <p>a company focused on creating and selling a range of beauty and personal care products that are inspired by nature and prioritize sustainability.</p>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Website</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="everything.html">Everything</a></li>
+                    <li><a href="#">Groceries</a></li>
+                    <li><a href="#">Juice</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Know More About Us</a></li>
+                    <li><a href="#">Visit Store</a></li>
+                    <li><a href="#">Let's Connect</a></li>
+                    <li><a href="#">Locate Stores</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Site Links</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Shipping Details</a></li>
+                    <li><a href="#">Offers Coupons</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>Copyright © 2025 | Organic Store</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-google"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart - Organic Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="cart.js" defer></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
                 <img src="assets/organic-store-nav-logo.svg" alt="Organic Store Logo">
             </div>
             <nav class="main-nav">
