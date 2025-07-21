@@ -1,8 +1,5 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Product Data (Sample) ---
     const productList = [
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/coffee-asorted-300x300.jpg',
@@ -87,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.querySelector('.search-product-filter button');
     const categoryLinks = document.querySelectorAll('.category-filter ul li a');
 
-    // --- Header Cart/User Icons (Placeholder functionality) ---
     const cartInfoSpan = document.querySelector('.cart-info');
     const cartCountSpan = document.querySelector('.cart-count');
 
@@ -99,8 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cartCountSpan.textContent = itemCount;
     }
 
-    // --- Add to Cart Event Listener (using delegation) ---
-    // This listener remains the same as it correctly targets the button regardless of its new position
     productGridContainer.addEventListener('click', (event) => {
         const addToCartButton = event.target.closest('.add-to-cart-btn');
 
@@ -118,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartDisplay();
 
 
-    // --- Price Range Slider ---
     const minRangeInput = document.querySelector('.min-range');
     const maxRangeInput = document.querySelector('.max-range');
     const minPriceValueSpan = document.getElementById('min-price-value');
@@ -151,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updatePriceDisplay();
 
 
-    // --- Render Products ---
     function renderProducts(productsToRender) {
         productGridContainer.innerHTML = '';
         if (productsToRender.length === 0) {
@@ -170,7 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const productCard = document.createElement('div');
             productCard.classList.add('product-card');
 
-            // Calculate old price if on sale
             let oldPriceHtml = '';
             let currentPrice = product.price;
             if (product.is_sale && product.offer_rate > 0) {
@@ -178,7 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 oldPriceHtml = `<span class="old-price">$${calculatedOldPrice.toFixed(2)}</span>`;
             }
 
-            // Generate star ratings
             let starsHtml = '';
             for (let i = 0; i < 5; i++) {
                 if (i < product.rating) {
@@ -215,11 +205,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Filter and Sort Logic ---
     function filterAndRenderProducts() {
         let filtered = [...productList];
 
-        // 1. Search Filter
         const searchTerm = searchInput.value.toLowerCase().trim();
         if (searchTerm) {
             filtered = filtered.filter(p =>
@@ -228,7 +216,6 @@ document.addEventListener('DOMContentLoaded', () => {
             );
         }
 
-        // 2. Category Filter
         const activeCategoryLink = document.querySelector('.category-filter ul li a.active-category');
         if (activeCategoryLink) {
             const selectedCategory = activeCategoryLink.textContent.split('(')[0].trim().toLowerCase();
@@ -237,12 +224,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // 3. Price Filter
         const minPrice = parseInt(minPriceValueSpan.textContent);
         const maxPrice = parseInt(maxPriceValueSpan.textContent);
         filtered = filtered.filter(p => p.price >= minPrice && p.price <= maxPrice);
 
-        // 4. Sort
         const sortBy = sortSelect.value;
         switch (sortBy) {
             case 'Sort by popularity':
@@ -269,7 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderProducts(currentProducts);
     }
 
-    // --- Event Listeners for Filters and Sort ---
     sortSelect.addEventListener('change', filterAndRenderProducts);
     searchButton.addEventListener('click', filterAndRenderProducts);
     searchInput.addEventListener('keyup', (event) => {
@@ -286,6 +270,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Initial render
     filterAndRenderProducts();
 });
