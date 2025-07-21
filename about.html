@@ -8,31 +8,31 @@
     <link rel="stylesheet" href="logo.css">
 </head>
 <body>
-    <header>
-        <section>
-            <div class="container">
-                <nav class="navigation-bar">
-                    <div class="navigation">
-                        <div>
-                            <img src="./asset-about/logo.svg" alt="image logo" class="logo">
-                        </div>
-                        <div>
-                            <ul>
-                                <li>About</li>
-                                <li>Everything</li>
-                                <li>Groceries</li>
-                                <li>Juice</li>
-                                <li>Contact</li>
-                            </ul>
-                        </div>
-                        <div class="nav-icons">
-                            <a href="#"><i class="fa-solid fa-basket-shopping" style="color: #070808;"></i></a>
-                            <a href="#"><i class="fa-solid fa-user" style="color: #0d0d0d;"></i></a>
-                        </div>
-                    </div>
-                </nav>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="./asset-about/logo.svg" alt="Organic Store Logo">
             </div>
-        </section>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#" class="active">Everything</a></li>
+                    <li><a href="#">Groceries</a></li>
+                    <li><a href="#">Juice</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <span class="cart-info">0.00</span>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="#" class="user-icon">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
     </header>
     <section>
         <div class="container">
@@ -135,52 +135,56 @@ Officiis fuga harum porro et? Similique rhoncus atque! Netus blanditiis providen
             
         </div>
     </section>
-    <footer>
-        <section>
-            <div class="container">
-                <div class="foot">
-                    <div class="foot-logo">
-                        <img src="./asset-about/organic-store-white-logo.png">
-                        <i>Maecenas mi justo,<br> interdum at consectetur <br>vel, tristique et arcu.</i>
-                    </div>
-                    <div>
-                        <h1>Website</h1><br>
-                          <li>About</li>
-                          <li>Everything</li>
-                          <li>Groceries</li>
-                          <li>Juice</li>
-                          <li>Contact</li>
-                    </div>
-                    <div>
-                        <h1>Quick Links</h1><br>
-                        <li>Know More About Us</li> 
-                        <li>Visit Store</li>
-                        <li>Let’s Connect</li>
-                        <li>Locate Stores</li>
+     <footer>
+        <div class="footer-top container">
+            <div class="footer-section footer-brand">
+                <img src="./asset-about/logo-black.png" alt="Organic Store Logo" class="footer-logo">
+                <p>a company focused on creating and selling a range of beauty and personal care products that are inspired by nature and prioritize sustainability.</p>
+            </div>
 
-                    </div>
-                    <div>
-                        <h1>Site Links</h1><br>
-                        <li>Privacy Policy</li>
-                        <li>Shipping Details</li>
-                        <li>Offers Coupons</li>
-                        <li>Terms & Conditions</li>
+            <div class="footer-section footer-links">
+                <h3>Website</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#" class="active">Everything</a></li>
+                    <li><a href="#">Groceries</a></li>
+                    <li><a href="#">Juice</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
 
-                    </div>
-                </div>
-                <div class="line">
-                    <hr>
-                    <div class="last">
-                        <p>Copyright © 2025 | Organic Store</p>
-                        <div>
-                            <i class="fa-brands fa-facebook-f" style="color: #f7f9fd;"></i>
-                            <i class="fa-brands fa-twitter" style="color: #f5f9ff;"></i>
-                            <i class="fa-brands fa-instagram"></i>
-                        </div>
-                    </div>
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Know More About Us</a></li>
+                    <li><a href="#">Visit Store</a></li>
+                    <li><a href="#">Let's Connect</a></li>
+                    <li><a href="#">Locate Stores</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Site Links</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Shipping Details</a></li>
+                    <li><a href="#">Offers Coupons</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>Copyright © 2025 | Organic Store</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-google"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-        </section>
+        </div>
     </footer>
     <script src="about.js"></script>
 </body>
