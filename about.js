@@ -45,6 +45,13 @@ let person = document.getElementById('comment');
 let personComment="";
 data.map((item)=>{
     personComment = personComment + `<div class='review'>
+                                    <span>
+                                        <i class="fa-solid fa-star" style="color: #cad709;"></i>
+                                        <i class="fa-solid fa-star" style="color: #cad709;"></i>
+                                        <i class="fa-solid fa-star" style="color: #cad709;"></i>
+                                        <i class="fa-solid fa-star" style="color: #cad709;"></i>
+                                        <i class="fa-solid fa-star" style="color: #cad709;"></i>
+                                    </span>
                                     <p>${item.message}</p>
                                     <span class="personal">
                                         <img src="${item.photo}">
