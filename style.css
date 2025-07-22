@@ -117,6 +117,7 @@ button:hover {
 }
 #productContainer , #trendingProduct {
     display: inline-flex;
+    justify-content: center;
     gap: 19px;
 }
 #productContainer , #trendingProduct p {
@@ -204,6 +205,25 @@ button:hover {
     padding-top: 30px;
     margin-bottom: 30px;
 }
+@media screen and (max-width:768px) {
+    #home-banner img {
+        max-width: 100%;
+    }
+    #bestSelling {
+        grid-template-rows: 1fr;
+    }
+    .feature-brand {
+        flex-direction: column;
+    }
+    #trending {
+        flex-direction: column;
+    }
+    #cardContainer {
+        flex-direction: row;
+    }
+    
+}
+
 body {
     font-family: 'Arial', sans-serif; 
     margin: 0;
