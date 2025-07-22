@@ -374,8 +374,8 @@ document.addEventListener('DOMContentLoaded', () => {
         filterAndRenderProducts();
     });
 
-    minRangeInput.value = 15;
-    maxRangeInput.value = 35;
+    minRangeInput.value = 0;
+    maxRangeInput.value = 100;
     updatePriceDisplay();
 
 
