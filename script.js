@@ -537,28 +537,24 @@ const showBestSellProduct = ()=> {
             image:"https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/coffee-asorted.jpg",
             category:'Groceries',
             name:'Assorted Coffee',
-            rating:'5star',
             price:'$35'
         },
         {
             image:'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/sanitizer-600x600.jpg',
             category:'Groceries',
             name:'Hand Sanitizer',
-            rating:'3star',
             price:'$55'
         },
         {
             image:'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/red-chillies-600x600.jpg',
             category:'Groceries',
             name:'Handpicked Red Chillies',
-            rating:'4star',
             price:'$65'
         },
         {
             image:'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/edible-oil-600x600.jpg',
             category:'Groceries',
             name:'Natural Extracted Edible Oil',
-            rating:'4star',
             price:'$25'
         },
     ];
@@ -572,13 +568,15 @@ const showBestSellProduct = ()=> {
                                     <img src="${item.image}"></img>
                                     <p>${item.category}</p>
                                     <h5>${item.name}</h5>
-                                    <p>${item.rating}</p>
                                     <p>${item.price}</p>
                                     </div>`
 
     })
     productContainer.innerHTML = productList
+}
+showBestSellProduct()
 
+const showListItems = ()=> {
     const listItem = [
         {
             contentTitle:'Farm Fresh Fruits',
@@ -612,7 +610,7 @@ const showBestSellProduct = ()=> {
     })
     itemContainer.innerHTML = itemList
 }
-showBestSellProduct()
+showListItems()
 
 const showTrendingProduct = ()=> {
     const trendProducts = [
@@ -620,27 +618,23 @@ const showTrendingProduct = ()=> {
             image:"https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/coffee-asorted.jpg",
             category:'Groceries',
             name:'Assorted Coffee',
-            rating:'5star',
             price:'$35'
         },
         {
             image:'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/orage-juice-kariz-600x600.jpg',
             category:'Juice',
             name:'Fresh Orange Juice',
-            rating:'4star',
             price:'$18'
         },
         {
             image:'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/sanitizer-600x600.jpg',
             category:'Groceries',
             name:'Hand Sanitizer',
-            rating:'3star',
             price:'$55'},
         {
             image:'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/red-chillies-600x600.jpg',
             category:'Groceries',
             name:'Handpicked Red Chillies',
-            rating:'4star',
             price:'$65'},
         
     ];
@@ -654,7 +648,6 @@ const showTrendingProduct = ()=> {
                                 <img src="${item.image}"></img>
                                 <p>${item.category}</p>
                                 <h5>${item.name}</h5>
-                                <p>${item.rating}</p>
                                 <p>${item.price}</p>
                                 </div>`
 
@@ -763,3 +756,60 @@ const showEverythingPageProduct = ()=> {
 }
 
 showEverythingPageProduct()
+
+const besrprod = (productsToRender) => {
+    const productGridContainer = document.querySelector('.product-grid');
+
+    let product_html = '';
+
+    if (productsToRender.length === 0) {
+        product_html = '<p style="text-align: center; grid-column: 1 / -1; font-size: 1.2em; color: #777;">No products found matching your search.</p>';
+    } else {
+        productsToRender.forEach((item) => {
+            const generateStars = (rating) => {
+                let starsHtml = '';
+                for (let i = 0; i < Math.floor(rating); i++) {
+                    starsHtml += '<i class="fas fa-star"></i>';
+                }
+                if (rating % 1 !== 0) {
+                    starsHtml += '<i class="fas fa-star-half-alt"></i>';
+                }
+                for (let i = 0; i < (5 - Math.ceil(rating)); i++) {
+                    starsHtml += '<i class="far fa-star"></i>';
+                }
+                return starsHtml;
+            };
+
+            product_html += `
+                <div class="product-card">
+                    <a href="product-details-${item.product_name.toLowerCase().replace(/\s/g, '-')}.html" class="product-link">
+                        <div class="product-image-wrapper">
+                            <img src="${item.image}" alt="${item.product_name}">
+                            ${item.is_sale ? '<span class="sale-badge">Sale!</span>' : ''}
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">${item.category}</span>
+                            <h4 class="product-title">${item.product_name}</h4>
+                            <div class="product-rating">
+                                ${generateStars(item.rating)}
+                            </div>
+                            <p class="product-price">
+                                <span class="current-price">${item.price.toFixed(2)}</span>
+                            </p>
+                        </div>
+                    </a>
+                    <button class="add-to-cart-btn"
+                            data-product-id="${item.product_name.toLowerCase().replace(/\s/g, '-')}"
+                            data-product-name="${item.product_name}"
+                            data-product-price="${item.price}"
+                            data-product-image="${item.image}">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            `;
+        });
+    }
+
+    productGridContainer.innerHTML = product_html;
+    addAddToCartListeners();
+};
