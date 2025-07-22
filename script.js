@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/coffee-asorted-300x300.jpg',
             product_name: 'Assorted Coffee',
-            price: 55.0,
+            price: 100.0,
             rating: 4,
             category: 'Groceries',
             offer_rate: 0,
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/cashew-butter-500-300x300.jpg',
             product_name: 'Cashew Butter',
-            price: 35.0,
+            price: 55.0,
             rating: 5,
             category: 'Groceries',
             offer_rate: 25,
@@ -257,10 +257,10 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/diabetic-cookies-300x300.jpg',
             product_name: 'Diabetics Cookies',
-            price: 25.0,
+            price: 105.0,
             rating: 3,
             category: 'Groceries',
-            offer_rate: 20,
+            offer_rate: 50,
             is_sale: true,
         },
         {
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/orage-juice-kariz-300x300.jpg',
             product_name: 'Fresh Juice',
-            price: 25.0,
+            price: 55.0,
             rating: 4,
             category: 'Juice',
             offer_rate: 0,
@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/sanitizer-300x300.jpg',
             product_name: 'Hand Sanitizer',
-            price: 25.0,
+            price: 100.0,
             rating: 2,
             category: 'Groceries',
             offer_rate: 20,
@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/red-chillies-300x300.jpg',
             product_name: 'Red Chillies',
-            price: 25.0,
+            price: 5.0,
             rating: 3,
             category: 'Groceries',
             offer_rate: 0,
@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderProducts(productsToRender) {
         productGridContainer.innerHTML = '';
         if (productsToRender.length === 0) {
-            productGridContainer.innerHTML = '<p>No products found matching your criteria.</p>';
+            productGridContainer.innerHTML = '<p>No products found.</p>';
             resultsDisplay.textContent = 'Showing 0 of 0 results';
             return;
         }
