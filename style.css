@@ -499,7 +499,8 @@ body {
 }
 
 .product-card .add-to-cart-btn {
-    background-color: #6a994e; 
+    background-color: #6a994e;
+    text-decoration: none; 
     color: #fff;
     border: none;
     padding: 10px 15px;
