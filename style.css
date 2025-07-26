@@ -866,16 +866,7 @@ footer {
     font-weight: bold; 
     font-size: 1.1em;
 }
-.proceed-to-checkout-btn{
-    color: #f8f6f6; 
-    background-color: #428a1b;
-    border: none; 
-    padding: 10px; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    font-size: 1em; 
-    margin-top: 20px; 
-}
+
 .back-to-shop-btn{
     display: block; 
     width: fit-content; 
@@ -1151,13 +1142,6 @@ footer {
     background-color: #6a994e;
     color: white;
     border: none;
-    padding: 12px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    width: 100%;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
 }
 
 .cart-totals .proceed-to-checkout-btn:hover {
@@ -1172,12 +1156,13 @@ footer {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
-    background-color:rgb(43, 168, 43);
+    background-color:#6a994e;
+    color: white;
 }
 
 .custom-btn.btn-1:hover {
     background-color: #e0e0e0;
-    color: #000;
+    color: black;
 }
 .auth-page-content {
     display: flex;
