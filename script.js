@@ -412,3 +412,29 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProducts(initialFilteredProducts, currentPage); 
     renderPagination(initialFilteredProducts); 
 });
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const signinForm = document.querySelector('.signin-form');
+    const signupForm = document.querySelector('.signup-form');
+    const showSignupLink = document.getElementById('show-signup');
+    const showSigninLink = document.getElementById('show-signin');
+
+    if (showSignupLink) {
+        showSignupLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            signinForm.style.display = 'none';
+            signupForm.style.display = 'block';
+        });
+    }
+
+    if (showSigninLink) {
+        showSigninLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            signupForm.style.display = 'none';
+            signinForm.style.display = 'block';
+        });
+    }
+});

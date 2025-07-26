@@ -296,9 +296,9 @@ body {
 }
 
 .shop-header-breadcrumb {
-    background-color: #f0f8f0; 
     padding: 40px 0;
     text-align: center;
+    color: green;
 }
 
 .shop-header-breadcrumb h1 {
@@ -312,6 +312,14 @@ body {
     color: #777;
 }
 
+.shop-header-breadcrumb .container h1{
+    color: green;
+}
+
+.shop-header-breadcrumb .container span {
+    font-size: 0.9em;
+    color: #777;
+}
 .shop-container {
     display: flex;
     gap: 30px; 
@@ -1170,4 +1178,97 @@ footer {
 .custom-btn.btn-1:hover {
     background-color: #e0e0e0;
     color: #000;
+}
+.auth-page-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    min-height: 60vh; 
+    padding: 60px 20px;
+    background-color: #f8f8f8;
+}
+
+.auth-forms-wrapper {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px; 
+    text-align: center;
+}
+
+.auth-forms-wrapper h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="text"] {
+    width: calc(100% - 22px); 
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.auth-submit-btn {
+    background-color: #6a994e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-submit-btn:hover {
+    background-color: #5b8744;
+}
+
+.auth-switch-text {
+    margin-top: 20px;
+    color: #777;
+    font-size: 0.95em;
+}
+
+.auth-switch-text a {
+    color: #6a994e;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.auth-switch-text a:hover {
+    color: #5b8744;
+    text-decoration: underline;
+}
+
+.shop-header-breadcrumb h1 {
+    font-size: 3em; 
+    color: #fff;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.shop-header-breadcrumb span {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.8);
 }
