@@ -1,509 +1,414 @@
-const productList = [
-    {
-        image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/coffee-asorted-300x300.jpg',
-        product_name: 'Assorted Coffee',
-        price: 55.00,
-        rating: 4,
-        category: 'Groceries',
-        old_price: null,
-        is_sale: false,
-    },
-    {
-        image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/cashew-butter-500-300x300.jpg',
-        product_name: 'Cashew Butter',
-        price: 35.00,
-        rating: 4.5,
-        category: 'Groceries',
-        old_price: 45.00,
-        is_sale: true,
-    },
-    {
-        image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/diabetic-cookies-300x300.jpg',
-        product_name: 'Diabetics Cookies',
-        price: 20.00,
-        rating: 5,
-        category: 'Groceries',
-        old_price: 25.00,
-        is_sale: true,
-    },
-    {
-        image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/eggs-300x300.jpg',
-        product_name: 'Egg',
-        price: 34.00,
-        rating: 4,
-        category: 'Groceries',
-        old_price: null,
-        is_sale: false,
-    },
-    {
-        image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/orage-juice-kariz-300x300.jpg',
-        product_name: 'Fresh Orange Juice',
-        price: 20.00,
-        rating: 4.5,
-        category: 'Juice',
-        old_price: 25.00,
-        is_sale: true,
-    },
-    {
-        image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/organic-honey-300x300.jpg',
-        product_name: 'Natural Honey',
-        price: 20.00,
-        rating: 5,
-        category: 'Groceries',
-        old_price: 25.00,
-        is_sale: true,
-    },
-    {
-        image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/sanitizer-300x300.jpg',
-        product_name: 'Hand Sanitizer',
-        price: 20.00,
-        rating: 5,
-        category: 'Groceries',
-        old_price: 25.00,
-        is_sale: true,
-    },
-    {
-        image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/red-chillies-300x300.jpg',
-        product_name: 'Red Chillies',
-        price: 15.00,
-        rating: 5,
-        category: 'Groceries',
-        old_price: null,
-        is_sale: false,
-    }
-];
-
-const getCart = () => {
-    const cartString = localStorage.getItem('shoppingCart');
-    return cartString ? JSON.parse(cartString) : [];
-};
-
-const saveCart = (cart) => {
-    localStorage.setItem('shoppingCart', JSON.stringify(cart));
-};
-
-const updateCartHeader = () => {
-    const cart = getCart();
-    const cartCountSpan = document.querySelector('.cart-count');
-    const cartInfoSpan = document.querySelector('.cart-info');
-
-    let totalItems = 0;
-    let totalPrice = 0;
-
-    cart.forEach(item => {
-        totalItems += item.quantity;
-        totalPrice += item.price * item.quantity;
-    });
-
-    if (cartCountSpan) {
-        cartCountSpan.textContent = totalItems;
-    }
-    if (cartInfoSpan) {
-        cartInfoSpan.textContent = totalPrice.toFixed(2);
-    }
-};
-
-const renderProducts = (productsToRender) => {
-    const productGridContainer = document.querySelector('.product-grid');
-
-    let product_html = '';
-
-    if (productsToRender.length === 0) {
-        product_html = '<p style="text-align: center; grid-column: 1 / -1; font-size: 1.2em; color: #777;">No products found matching your search.</p>';
-    } else {
-        productsToRender.forEach((item) => {
-            const generateStars = (rating) => {
-                let starsHtml = '';
-                for (let i = 0; i < Math.floor(rating); i++) {
-                    starsHtml += '<i class="fas fa-star"></i>';
-                }
-                if (rating % 1 !== 0) {
-                    starsHtml += '<i class="fas fa-star-half-alt"></i>';
-                }
-                for (let i = 0; i < (5 - Math.ceil(rating)); i++) {
-                    starsHtml += '<i class="far fa-star"></i>';
-                }
-                return starsHtml;
-            };
-
-            product_html += `
-                <div class="product-card">
-                    <a href="product-details-${item.product_name.toLowerCase().replace(/\s/g, '-')}.html" class="product-link">
-                        <div class="product-image-wrapper">
-                            <img src="${item.image}" alt="${item.product_name}">
-                            ${item.is_sale ? '<span class="sale-badge">Sale!</span>' : ''}
-                        </div>
-                        <div class="product-details">
-                            <span class="product-category">${item.category}</span>
-                            <h4 class="product-title">${item.product_name}</h4>
-                            <div class="product-rating">
-                                ${generateStars(item.rating)}
-                            </div>
-                            <p class="product-price">
-                                ${item.old_price !== null ? `<span class="old-price">${item.old_price.toFixed(2)}</span>` : ''}
-                                <span class="current-price">${item.price.toFixed(2)}</span>
-                            </p>
-                        </div>
-                    </a>
-                    <button class="add-to-cart-btn"
-                            data-product-id="${item.product_name.toLowerCase().replace(/\s/g, '-')}"
-                            data-product-name="${item.product_name}"
-                            data-product-price="${item.price}"
-                            data-product-image="${item.image}">
-                        <i class="fas fa-shopping-cart"></i> Add to Cart
-                    </button>
-                </div>
-            `;
-        });
-    }
-
-    productGridContainer.innerHTML = product_html;
-    addAddToCartListeners();
-};
-
-const addAddToCartListeners = () => {
-    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const productId = button.dataset.productId;
-            const productName = button.dataset.productName;
-            const productPrice = parseFloat(button.dataset.productPrice);
-            const productImage = button.dataset.productImage;
-
-            let cart = getCart();
-
-            const existingItemIndex = cart.findIndex(item => item.id === productId);
-
-            if (existingItemIndex > -1) {
-                cart[existingItemIndex].quantity += 1;
-            } else {
-                cart.push({
-                    id: productId,
-                    name: productName,
-                    price: productPrice,
-                    image: productImage,
-                    quantity: 1
-                });
-            }
-
-            saveCart(cart);
-            updateCartHeader();
-
-            const cartIcon = document.querySelector('.cart-icon');
-            if (cartIcon) {
-                cartIcon.classList.add('bounced');
-                setTimeout(() => {
-                    cartIcon.classList.remove('bounced');
-                }, 500);
-            }
-        });
-    });
-};
-
-const handleSearch = () => {
-    const searchInput = document.querySelector('.search-box input');
-    const searchTerm = searchInput.value.toLowerCase().trim(); 
-
-    const filteredProducts = productList.filter(product => {
-        return product.product_name.toLowerCase().includes(searchTerm) ||
-        product.category.toLowerCase().includes(searchTerm);
-    });
-
-    renderProducts(filteredProducts); 
-};
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    renderProducts(productList);
-
-    updateCartHeader();
-
-    const searchInput = document.querySelector('.search-box input');
-    const searchButton = document.querySelector('.search-box button');
-
-    if (searchInput) {
-        searchInput.addEventListener('keyup', (event) => {
-            if (event.key === 'Enter') {
-                handleSearch();
-            }
-        });
-    }
-
-    if (searchButton) {
-        searchButton.addEventListener('click', handleSearch);
-    }
-})
 document.addEventListener('DOMContentLoaded', () => {
 
     const productList = [
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/coffee-asorted-300x300.jpg',
             product_name: 'Assorted Coffee',
-            price: 100.0,
+            price: 55.00,
             rating: 4,
             category: 'Groceries',
-            offer_rate: 0,
+            old_price: null,
             is_sale: false,
         },
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/cashew-butter-500-300x300.jpg',
             product_name: 'Cashew Butter',
-            price: 55.0,
-            rating: 5,
+            price: 35.00,
+            rating: 4.5,
             category: 'Groceries',
-            offer_rate: 25,
+            old_price: 45.00,
             is_sale: true,
         },
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/diabetic-cookies-300x300.jpg',
             product_name: 'Diabetics Cookies',
-            price: 105.0,
-            rating: 3,
+            price: 20.00,
+            rating: 5,
             category: 'Groceries',
-            offer_rate: 50,
+            old_price: 25.00,
             is_sale: true,
         },
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/eggs-300x300.jpg',
             product_name: 'Egg',
-            price: 34.0,
+            price: 34.00,
             rating: 4,
             category: 'Groceries',
-            offer_rate: 20,
-            is_sale: true,
+            old_price: null,
+            is_sale: false,
         },
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/orage-juice-kariz-300x300.jpg',
-            product_name: 'Fresh Juice',
-            price: 55.0,
-            rating: 4,
+            product_name: 'Fresh Orange Juice',
+            price: 20.00,
+            rating: 4.5,
             category: 'Juice',
-            offer_rate: 0,
-            is_sale: false,
+            old_price: 25.00,
+            is_sale: true,
         },
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/organic-honey-300x300.jpg',
-            product_name: 'Organic Honey',
-            price: 25.0,
+            product_name: 'Natural Honey',
+            price: 20.00,
             rating: 5,
             category: 'Groceries',
-            offer_rate: 0,
-            is_sale: false,
+            old_price: 25.00,
+            is_sale: true,
         },
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/sanitizer-300x300.jpg',
             product_name: 'Hand Sanitizer',
-            price: 100.0,
-            rating: 2,
+            price: 20.00,
+            rating: 5,
             category: 'Groceries',
-            offer_rate: 20,
+            old_price: 25.00,
             is_sale: true,
         },
         {
             image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/red-chillies-300x300.jpg',
             product_name: 'Red Chillies',
-            price: 5.0,
-            rating: 3,
+            price: 15.00,
+            rating: 5,
             category: 'Groceries',
-            offer_rate: 0,
+            old_price: null,
+            is_sale: false,
+        },
+        {
+            image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/face-wash-300x300.jpg',
+            product_name: 'Organic Face Scrub',
+            price: 30.00,
+            rating: 4,
+            category: 'Groceries',
+            old_price: null,
+            is_sale: false,
+        },
+        {
+            image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/pulses-300x300.jpg',
+            product_name: 'Pulses From Organic Farm',
+            price: 18.00,
+            rating: 4.5,
+            category: 'Groceries',
+            old_price: 22.00,
+            is_sale: true,
+        },
+        {
+            image: 'https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/wheat-300x300.jpg',
+            product_name: 'Wheat From Organic Farms',
+            price: 8.00,
+            rating: 3.5,
+            category: 'Vegetables',
+            old_price: null,
+            is_sale: false,
+        },
+        {
+            image: 'https://assets.clevelandclinic.org/transform/cd71f4bd-81d4-45d8-a450-74df78e4477a/Apples-184940975-770x533-1_jpg',
+            product_name: 'Fresh Apples',
+            price: 25.00,
+            rating: 5,
+            category: 'Fresh Fruits',
+            old_price: null,
+            is_sale: false,
+        },
+        {
+            image: 'https://cdn.britannica.com/45/126445-050-4C0FA9F6/Kiwi-fruit.jpg',
+            product_name: 'Kiwi Fruit',
+            price: 12.00,
+            rating: 4,
+            category: 'Fresh Fruits',
+            old_price: null,
+            is_sale: false,
+        },
+        {
+            image: 'https://gabbarfarms.com/cdn/shop/products/Spinach.jpg?v=1620713074',
+            product_name: 'Fresh Spinach',
+            price: 7.00,
+            rating: 4.5,
+            category: 'Vegetables',
+            old_price: null,
             is_sale: false,
         }
     ];
 
-    let currentProducts = [...productList];
+    const productsPerPage = 9; 
+    let currentPage = 1;     
 
-    const productGridContainer = document.querySelector('.product-grid');
-    const resultsDisplay = document.querySelector('.sort-options p');
-    const sortSelect = document.querySelector('.sort-customize-group select');
-    const searchInput = document.querySelector('.search-product-filter input');
-    const searchButton = document.querySelector('.search-product-filter button');
-    const categoryLinks = document.querySelectorAll('.category-filter ul li a');
-
-    const cartInfoSpan = document.querySelector('.cart-info');
-    const cartCountSpan = document.querySelector('.cart-count');
-
-    let cartTotal = 0.00;
-    let itemCount = 0;
-
-    function updateCartDisplay() {
-        cartInfoSpan.textContent = cartTotal.toFixed(2);
-        cartCountSpan.textContent = itemCount;
+    function getCart() {
+        return JSON.parse(localStorage.getItem('cart')) || [];
     }
 
-    productGridContainer.addEventListener('click', (event) => {
-        const addToCartButton = event.target.closest('.add-to-cart-btn');
-
-        if (addToCartButton) {
-            event.preventDefault();
-
-            const price = parseFloat(addToCartButton.dataset.price);
-
-            cartTotal += price;
-            itemCount++;
-            updateCartDisplay();
-        }
-    });
-
-    updateCartDisplay();
-
-
-    const minRangeInput = document.querySelector('.min-range');
-    const maxRangeInput = document.querySelector('.max-range');
-    const minPriceValueSpan = document.getElementById('min-price-value');
-    const maxPriceValueSpan = document.getElementById('max-price-value');
-    const filterButton = document.querySelector('.filter-button');
-
-    function updatePriceDisplay() {
-        let minVal = parseInt(minRangeInput.value);
-        let maxVal = parseInt(maxRangeInput.value);
-
-        if (minVal > maxVal) {
-            [minVal, maxVal] = [maxVal, minVal];
-            minRangeInput.value = minVal;
-            maxRangeInput.value = maxVal;
-        }
-
-        minPriceValueSpan.textContent = minVal.toFixed(0);
-        maxPriceValueSpan.textContent = maxVal.toFixed(0);
+    function saveCart(cart) {
+        localStorage.setItem('cart', JSON.stringify(cart));
     }
 
-    minRangeInput.addEventListener('input', updatePriceDisplay);
-    maxRangeInput.addEventListener('input', updatePriceDisplay);
+    function updateCartHeader() {
+        const cart = getCart();
+        const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2);
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-    filterButton.addEventListener('click', () => {
-        filterAndRenderProducts();
-    });
+        const cartInfoSpan = document.querySelector('.cart-info');
+        const cartCountSpan = document.querySelector('.cart-count');
 
-    minRangeInput.value = 0;
-    maxRangeInput.value = 100;
-    updatePriceDisplay();
+        if (cartInfoSpan) cartInfoSpan.textContent = total;
+        if (cartCountSpan) cartCountSpan.textContent = count;
+    }
 
+    const popupOverlay = document.getElementById('popupOverlay');
+    const alertMessageDiv = document.getElementById('alertMessage');
 
-    function renderProducts(productsToRender) {
-        productGridContainer.innerHTML = '';
-        if (productsToRender.length === 0) {
-            productGridContainer.innerHTML = '<p>No products found.</p>';
-            resultsDisplay.textContent = 'Showing 0 of 0 results';
+    function showCustomAlert(message, type = 'success') {
+        if (!popupOverlay || !alertMessageDiv) {
+            console.error("Popup overlay or alert message div not found! Check your HTML IDs.");
             return;
         }
 
-        const itemsPerPage = 9;
-        const totalItems = productsToRender.length;
-        const displayCount = Math.min(itemsPerPage, totalItems);
-        resultsDisplay.textContent = `Showing 1-${displayCount} of ${totalItems} results`;
+        alertMessageDiv.innerHTML = '';
+        const icon = document.createElement('i');
+        icon.classList.add('fas');
 
+        if (type === 'success') {
+            icon.classList.add('fa-check-circle');
+            alertMessageDiv.style.backgroundColor = '#d4edda';
+            alertMessageDiv.style.borderColor = '#c3e6cb';
+            icon.style.color = '#28a745';
+        } else if (type === 'error') {
+            icon.classList.add('fa-times-circle');
+            alertMessageDiv.style.backgroundColor = '#f8d7da';
+            alertMessageDiv.style.borderColor = '#f5c6cb';
+            icon.style.color = '#dc3545';
+        }
 
-        productsToRender.slice(0, itemsPerPage).forEach(product => {
+        alertMessageDiv.appendChild(icon);
+        const textNode = document.createTextNode(message);
+        alertMessageDiv.appendChild(textNode);
+
+        popupOverlay.classList.add('show');
+
+        setTimeout(() => {
+            popupOverlay.classList.remove('show');
+        }, 3000);
+    }
+
+    function addToCart(product) {
+        const cart = getCart();
+        const existingProduct = cart.find(item => item.id === product.id);
+
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+        } else {
+            product.quantity = 1;
+            cart.push(product);
+        }
+
+        saveCart(cart);
+        updateCartHeader();
+        showCustomAlert("Item added to cart successfully!");
+    }
+
+    function renderProducts(productsToRender, pageNumber) {
+        const productGrid = document.querySelector('.product-grid');
+        if (!productGrid) {
+            console.warn("Product grid container not found in the DOM.");
+            return;
+        }
+
+        productGrid.innerHTML = ''; 
+
+        const startIndex = (pageNumber - 1) * productsPerPage;
+        const endIndex = startIndex + productsPerPage;
+        const productsOnPage = productsToRender.slice(startIndex, endIndex);
+
+        productsOnPage.forEach(product => {
             const productCard = document.createElement('div');
             productCard.classList.add('product-card');
 
-            let oldPriceHtml = '';
-            let currentPrice = product.price;
-            if (product.is_sale && product.offer_rate > 0) {
-                const calculatedOldPrice = product.price / (1 - product.offer_rate / 100);
-                oldPriceHtml = `<span class="old-price">$${calculatedOldPrice.toFixed(2)}</span>`;
-            }
-
-            let starsHtml = '';
-            for (let i = 0; i < 5; i++) {
-                if (i < product.rating) {
-                    starsHtml += '<i class="fas fa-star"></i>';
-                } else {
-                    starsHtml += '<i class="far fa-star"></i>';
-                }
-            }
+            const productId = product.product_name.toLowerCase().replace(/\s/g, '-');
 
             productCard.innerHTML = `
                 <div class="product-image-wrapper">
                     <img src="${product.image}" alt="${product.product_name}">
                     ${product.is_sale ? '<span class="sale-badge">Sale</span>' : ''}
-                    <div class="product-overlay">
-                        <a href="#" class="quick-view-btn" data-id="${product.id || product.product_name}"><i class="fas fa-eye"></i></a>
-                    </div>
                 </div>
                 <div class="product-details">
                     <span class="product-category">${product.category}</span>
                     <h4 class="product-title">${product.product_name}</h4>
                     <div class="product-rating">
-                        ${starsHtml}
+                        ${'<i class="fas fa-star"></i>'.repeat(Math.floor(product.rating))}
+                        ${product.rating % 1 !== 0 ? '<i class="fas fa-star-half-alt"></i>' : ''}
+                        ${'<i class="far fa-star"></i>'.repeat(5 - Math.ceil(product.rating))}
                     </div>
                     <p class="product-price">
-                        ${oldPriceHtml}
-                        <span class="current-price">$${currentPrice.toFixed(2)}</span>
+                        ${product.old_price ? `<span class="old-price">$${product.old_price.toFixed(2)}</span>` : ''}
+                        <span class="current-price">$${product.price.toFixed(2)}</span>
                     </p>
-                    <a href="#" class="add-to-cart-btn" data-price="${product.price}">
+                    <button class="add-to-cart-btn"
+                        data-product-id="${productId}"
+                        data-product-name="${product.product_name}"
+                        data-product-price="${product.price}"
+                        data-product-image="${product.image}">
                         <i class="fas fa-shopping-cart"></i> Add to Cart
-                    </a>
+                    </button>
                 </div>
             `;
-            productGridContainer.appendChild(productCard);
+            productGrid.appendChild(productCard);
         });
-    }
 
-    function filterAndRenderProducts() {
-        let filtered = [...productList];
-
-        const searchTerm = searchInput.value.toLowerCase().trim();
-        if (searchTerm) {
-            filtered = filtered.filter(p =>
-                p.product_name.toLowerCase().includes(searchTerm) ||
-                p.category.toLowerCase().includes(searchTerm)
-            );
-        }
-
-        const activeCategoryLink = document.querySelector('.category-filter ul li a.active-category');
-        if (activeCategoryLink) {
-            const selectedCategory = activeCategoryLink.textContent.split('(')[0].trim().toLowerCase();
-            if (selectedCategory !== 'all') {
-                filtered = filtered.filter(p => p.category.toLowerCase() === selectedCategory);
+        const totalProductsFiltered = productsToRender.length;
+        const startShowing = Math.min(startIndex + 1, totalProductsFiltered);
+        const endShowing = Math.min(endIndex, totalProductsFiltered);
+        const showingResultsText = document.querySelector('.sort-options p');
+        if (showingResultsText) {
+            if (totalProductsFiltered === 0) {
+                showingResultsText.textContent = "No results found.";
+            } else {
+                showingResultsText.textContent = `Showing ${startShowing}-${endShowing} of ${totalProductsFiltered} results`;
             }
         }
 
-        const minPrice = parseInt(minPriceValueSpan.textContent);
-        const maxPrice = parseInt(maxPriceValueSpan.textContent);
-        filtered = filtered.filter(p => p.price >= minPrice && p.price <= maxPrice);
-
-        const sortBy = sortSelect.value;
-        switch (sortBy) {
-            case 'Sort by popularity':
-                filtered.sort((a, b) => b.rating - a.rating);
-                break;
-            case 'Sort by average rating':
-                filtered.sort((a, b) => b.rating - a.rating);
-                break;
-            case 'Sort by latest':
-                break;
-            case 'Sort by price: low to high':
-                filtered.sort((a, b) => a.price - b.price);
-                break;
-            case 'Sort by price: high to low':
-                filtered.sort((a, b) => b.price - a.price);
-                break;
-            case 'Default sorting':
-            default:
-                filtered.sort((a, b) => a.product_name.localeCompare(b.product_name));
-                break;
-        }
-
-        currentProducts = filtered;
-        renderProducts(currentProducts);
+        addAddToCartListeners();
     }
 
-    sortSelect.addEventListener('change', filterAndRenderProducts);
-    searchButton.addEventListener('click', filterAndRenderProducts);
-    searchInput.addEventListener('keyup', (event) => {
-        if (event.key === 'Enter') {
-            filterAndRenderProducts();
+    function addAddToCartListeners() {
+        const buttons = document.querySelectorAll('.add-to-cart-btn');
+        buttons.forEach(button => {
+            button.removeEventListener('click', handleAddToCartButtonClick);
+            button.addEventListener('click', handleAddToCartButtonClick);
+        });
+    }
+
+    function handleAddToCartButtonClick(event) {
+        event.preventDefault();
+        const button = event.currentTarget;
+        const product = {
+            id: button.dataset.productId,
+            name: button.dataset.productName,
+            price: parseFloat(button.dataset.productPrice),
+            image: button.dataset.productImage
+        };
+        addToCart(product);
+    }
+
+    function renderPagination(productsToPaginate) {
+        const paginationContainer = document.querySelector('.pagination');
+        if (!paginationContainer) {
+            console.warn("Pagination container not found.");
+            return;
+        }
+
+        paginationContainer.innerHTML = ''; 
+
+        const totalPages = Math.ceil(productsToPaginate.length / productsPerPage);
+
+        if (totalPages <= 1) { 
+            paginationContainer.style.display = 'none';
+            return;
+        } else {
+            paginationContainer.style.display = 'flex'; 
+        }
+
+        const prevLink = document.createElement('a');
+        prevLink.href = '#';
+        prevLink.textContent = '\u00AB'; 
+        prevLink.classList.add('pagination-link');
+        if (currentPage === 1) {
+            prevLink.classList.add('disabled');
+        } else {
+            prevLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                goToPage(currentPage - 1);
+            });
+        }
+        paginationContainer.appendChild(prevLink);
+
+        for (let i = 1; i <= totalPages; i++) {
+            const pageLink = document.createElement('a');
+            pageLink.href = '#';
+            pageLink.textContent = i;
+            pageLink.classList.add('pagination-link');
+            if (i === currentPage) {
+                pageLink.classList.add('active'); 
+            }
+            pageLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                goToPage(i);
+            });
+            paginationContainer.appendChild(pageLink);
+        }
+
+        const nextLink = document.createElement('a');
+        nextLink.href = '#';
+        nextLink.textContent = '\u00BB'; 
+        nextLink.classList.add('pagination-link');
+        if (currentPage === totalPages) {
+            nextLink.classList.add('disabled');
+        } else {
+            nextLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                goToPage(currentPage + 1);
+            });
+        }
+        paginationContainer.appendChild(nextLink);
+    }
+
+    function goToPage(pageNumber) {
+        const totalPages = Math.ceil(applyFilters(productList).length / productsPerPage);
+        if (pageNumber < 1) pageNumber = 1;
+        if (pageNumber > totalPages) pageNumber = totalPages;
+
+        currentPage = pageNumber;
+        const filteredProducts = applyFilters(productList); 
+        renderProducts(filteredProducts, currentPage);
+        renderPagination(filteredProducts); 
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function applyFilters(products) {
+        const minRangeInput = document.querySelector('.min-range');
+        const maxRangeInput = document.querySelector('.max-range');
+        const searchTermInput = document.querySelector('.searchTerm');
+
+        const min = minRangeInput ? parseInt(minRangeInput.value) : 0;
+        const max = maxRangeInput ? parseInt(maxRangeInput.value) : 100;
+        const searchTerm = searchTermInput ? searchTermInput.value.toLowerCase() : '';
+
+        return products.filter(p => {
+            const priceMatch = p.price >= min && p.price <= max;
+            const searchMatch = p.product_name.toLowerCase().includes(searchTerm);
+            return priceMatch && searchMatch;
+        });
+    }
+
+    function handleFilterChange() {
+        currentPage = 1; 
+        const filtered = applyFilters(productList);
+        renderProducts(filtered, currentPage);
+        renderPagination(filtered);
+    }
+
+    const filterButton = document.querySelector('.filter-button');
+    if (filterButton) filterButton.addEventListener('click', handleFilterChange);
+
+    const searchInput = document.querySelector('.searchTerm');
+    if (searchInput) {
+        searchInput.addEventListener('input', handleFilterChange); 
+    }
+
+    const rangeInputs = document.querySelectorAll('.min-range, .max-range');
+    rangeInputs.forEach(input => {
+        if (input) {
+            input.addEventListener('input', () => {
+                const minPriceDisplay = document.getElementById('min-price-value');
+                const maxPriceDisplay = document.getElementById('max-price-value');
+
+                if (minPriceDisplay && maxPriceDisplay) {
+                    minPriceDisplay.textContent = document.querySelector('.min-range').value;
+                    maxPriceDisplay.textContent = document.querySelector('.max-range').value;
+                }
+            });
         }
     });
-    categoryLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            categoryLinks.forEach(l => l.classList.remove('active-category'));
-            link.classList.add('active-category');
-            filterAndRenderProducts();
-        });
-    });
 
-    filterAndRenderProducts();
+    updateCartHeader(); 
+    const initialFilteredProducts = applyFilters(productList); 
+    renderProducts(initialFilteredProducts, currentPage); 
+    renderPagination(initialFilteredProducts); 
 });
